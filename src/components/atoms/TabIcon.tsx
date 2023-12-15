@@ -1,5 +1,8 @@
 import React from "react";
-import Svg, { SvgProps } from "react-native-svg";
+import Svg, {
+  Use,
+  Image,
+} from "react-native-svg";
 
 const TabIcon: React.FC<SvgProps> = (props) => {
   return <Svg {...props} />;
