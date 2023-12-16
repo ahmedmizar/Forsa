@@ -44,11 +44,8 @@
     "paths": {
       "assets/*": ["src/assets/*"],
       "screens/*": ["src/screens/*"],
-      "atoms/*": ["src/components/atoms/*"],
-      "molecules/*": ["src/components/molecules/*"],
-      "organisms/*": ["src/components/organisms/*"],
-      "templates/*": ["src/components/templates/*"],
-      "navigation/*": ["src/navigation/*"]
+      "navigation/*": ["src/navigation/*"],
+      "components/*": ["src/components/*"]
     },
 
     "esModuleInterop": true,

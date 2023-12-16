@@ -1,16 +1,30 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image, Text, View } from "react-native";
 import Home from "screens/Home";
 import Offers from "screens/Offers";
 import Profile from "screens/Profile";
 import Retail from "screens/Retail";
 import tag from "src/assets/icons/tag.png";
-import headerBK from "src/assets/icons/headerBK.png";
-import GetEnhancedHeader from "organisms/header/Header";
+import GetEnhancedHeader from "src/components/header/header";
 
 // import FeedBack from "../../assets/svg/feedback.svg";
 
 const Tab = createBottomTabNavigator();
+const HomeStack = createNativeStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator 
+    screenOptions={{
+      header: GetEnhancedHeader,
+    }}
+    >
+      <HomeStack.Screen name="Home" component={Home} />
+    </HomeStack.Navigator>
+  );
+}
+
 
 const Tabs = () => {
   return (
@@ -18,17 +32,17 @@ const Tabs = () => {
       initialRouteName="home"
       screenOptions={{
         tabBarActiveTintColor: "#e91e63",
-        headerTransparent: true,
-        header: GetEnhancedHeader,
+        headerShown: false
       }}
     >
+
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeStackScreen}
         options={{
           tabBarLabel: "Home",
-          sayed: "asas,",
-          hasSeachIcon: true,
+          headerTransparent: true,
+          // hasSeachIcon: true,
           tabBarIcon: ({ color, size }) => (
             <Image
               // style={styles.tinyLogo}
