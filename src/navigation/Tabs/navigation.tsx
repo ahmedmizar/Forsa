@@ -1,11 +1,13 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Image, Text, View } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "screens/Home";
 import Offers from "screens/Offers";
 import Profile from "screens/Profile";
 import Retail from "screens/Retail";
-import tag from "src/assets/icons/tag.png";
+import HomeIcon from "src/assets/svg/homeIcon.svg";
+import ProfileIcon from "src/assets/svg/profile.svg";
+import OffersIcon from "src/assets/svg/offers.svg";
+import RetailIcon from "src/assets/svg/retail.svg";
 import GetEnhancedHeader from "src/components/header/header";
 
 // import FeedBack from "../../assets/svg/feedback.svg";
@@ -15,16 +17,15 @@ const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
   return (
-    <HomeStack.Navigator 
-    screenOptions={{
-      header: GetEnhancedHeader,
-    }}
+    <HomeStack.Navigator
+      screenOptions={{
+        header: GetEnhancedHeader,
+      }}
     >
       <HomeStack.Screen name="Home" component={Home} />
     </HomeStack.Navigator>
   );
 }
-
 
 const Tabs = () => {
   return (
@@ -32,10 +33,9 @@ const Tabs = () => {
       initialRouteName="home"
       screenOptions={{
         tabBarActiveTintColor: "#e91e63",
-        headerShown: false
+        headerShown: false,
       }}
     >
-
       <Tab.Screen
         name="Home"
         component={HomeStackScreen}
@@ -43,13 +43,7 @@ const Tabs = () => {
           tabBarLabel: "Home",
           headerTransparent: true,
           // hasSeachIcon: true,
-          tabBarIcon: ({ color, size }) => (
-            <Image
-              // style={styles.tinyLogo}
-              tintColor={"blue"}
-              source={tag}
-            />
-          ),
+          tabBarIcon: ({ color, size }) => <HomeIcon />,
         }}
       />
 
@@ -58,7 +52,7 @@ const Tabs = () => {
         component={Retail}
         options={{
           tabBarLabel: "Retail",
-          tabBarIcon: ({ color, size }) => <></>,
+          tabBarIcon: ({ color, size }) => <RetailIcon />,
         }}
       />
       <Tab.Screen
@@ -66,7 +60,7 @@ const Tabs = () => {
         component={Offers}
         options={{
           tabBarLabel: "Offers",
-          tabBarIcon: ({ color, size }) => <></>,
+          tabBarIcon: ({ color, size }) => <OffersIcon />,
         }}
       />
 
@@ -75,7 +69,7 @@ const Tabs = () => {
         component={Profile}
         options={{
           tabBarLabel: "Profile",
-          tabBarIcon: ({ color, size }) => <></>,
+          tabBarIcon: ({ color, size }) => <ProfileIcon />,
         }}
       />
     </Tab.Navigator>
