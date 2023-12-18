@@ -7,20 +7,27 @@ interface IProps {
   rightText: string;
   rightTextAction?: () => void;
   marginBottom?: number;
+  marginTop?: number;
 }
 const SectionHeader: React.FC<IProps> = ({
   title,
   rightText,
   rightTextAction,
   marginBottom,
+  marginTop,
 }) => {
   return (
     <View
-      style={
-        marginBottom
-          ? { ...styles.headerContainer, marginBottom }
-          : styles.headerContainer
-      }
+      // style={
+      //   marginBottom
+      //     ? { ...styles.headerContainer, marginBottom }
+      //     : styles.headerContainer
+      // }
+      style={[
+        styles.headerContainer,
+        marginBottom && { marginBottom: marginBottom },
+        marginTop && { marginTop: marginTop },
+      ]}
     >
       <SText text={title} preset={"body"} type="semibold" />
       <TouchableOpacity onPress={rightTextAction}>

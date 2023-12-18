@@ -9,9 +9,6 @@ import ProfileIcon from "src/assets/svg/profile.svg";
 import OffersIcon from "src/assets/svg/offers.svg";
 import RetailIcon from "src/assets/svg/retail.svg";
 import GetEnhancedHeader from "src/components/header/header";
-
-// import FeedBack from "../../assets/svg/feedback.svg";
-
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
 
@@ -42,7 +39,6 @@ const Tabs = () => {
         options={{
           tabBarLabel: "Home",
           headerTransparent: true,
-          // hasSeachIcon: true,
           tabBarIcon: ({ color, size }) => <HomeIcon />,
         }}
       />
